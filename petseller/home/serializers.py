@@ -5,19 +5,23 @@ from django.contrib.auth.models import User
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model=Category
-        fields=['category_name']
+        fields=['uuid','category_name']
+        read_only_fields = ['uuid']
 class AnimalBreedSerializer(serializers.ModelSerializer):
     class Meta:
         model=AnimalBreed
-        fields=['animal_Breed']
+        fields=['uuid','animal_Breed']
+        read_only_fields = ['uuid']
 class AnimalColorSerializer(serializers.ModelSerializer):
     class Meta:
         model=AnimalColor
-        fields=['animal_color']
+        fields=['uuid','animal_color']
+        read_only_fields = ['uuid']
 class AnimalImagesSerializer(serializers.ModelSerializer):
     class Meta:
         model=AnimalImages
-        fields=['animal_Images']
+        fields=['uuid','animal_Images']
+        read_only_fields = ['uuid']
 class AnimalSerializer(serializers.ModelSerializer):
     animal_category= serializers.SerializerMethodField()       # CategorySerializer()
     animal_color=AnimalColorSerializer(many=True)
